@@ -13,21 +13,24 @@ with open('movies.txt', 'r') as movie:
 
 
 def k_Gram(k, text):
-    klist = []
+    klist = {}
     if k > 1:
         doller = '$' * (k-1)
         text = doller + text + doller
 
     for i in range(len(text) - (k - 1) ):
-        klist.append(text[i:i+k])
+        klist.keys(text)
     return klist
 
-
+value = []
+for i in range(k_Gram(termDict,termDict)):
+    value.append(len(k_Gram(termDict)))
+'''
 for i in range(4):
     mydict = dict.fromkeys(k_Gram(i+1, termDict))
 
 print(mydict)
-
+'''
 """
 def jaccard(mydict, termdict):
     intersection = len(list(set(list1).intersection(list2)))
@@ -42,3 +45,8 @@ KList = k_Gram(3,"termDict")
 for kGram in iter(KList):
     print ('"' + kGram + '"')
  """
+'''
+valuegrams =[]
+for i in range klist:
+    valuegrams.append([i])
+'''
