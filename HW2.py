@@ -71,5 +71,5 @@ with open('movies.txt', 'r') as movie:
                 termDict[word] = g
 
 
-query = input("input your query")
+query = input("input your query : ")
 search(query)
