@@ -13,63 +13,27 @@ with open('movies.txt', 'r') as movie:
 
 
 def k_Gram(k, text):
-    klist = {}
-    if k > 1:
-        doller = '$' * (k-1)
-        text = doller + text + doller
-
+    klist = []
     for i in range(len(text) - (k - 1) ):
-        klist.keys(text)
+        klist.append("$".join(text[i:i+k]))
     return klist
 
-value = []
-for i in range(k_Gram(termDict,termDict)):
-    value.append(len(k_Gram(termDict)))
-'''
-for i in range(4):
-    mydict = dict.fromkeys(k_Gram(i+1, termDict))
 
-print(mydict)
-'''
+def jaccardCoefficient(lst1, lst2):
+    list1= set(lst1)
+    list2 = set(lst2)
+    return float(len(list1.intersection(list2))/len(list1.union(list2)))
 
 
-def jaccard(value, termDict):
-    intersection = len(list(set(value).intersection(termDict)))
-    union = (len(value) + len(termDict)) - intersection
-    return float(intersection) / union
+def edit_distance(term, query, x, y):
+    distProb = [[0 for i in range(x+1)] for i in range(y+1)]
+    for n in range(y+1):
+        for m in range(x+1):
+            if n == 0:
+                distProb[n][m] = m
+            elif term [n-1] == query[m-1]:
+                distProb[n][m] = distProb[n-1][m-1]
+            else:
+                distProb[n][m]= 1 + min(distProb[n][m-1],distProb[n-1][m],distProb[n-1][m-1])
+    return distProb[x][y]
 
-
-
-def edit_distance(string1, string2):
-
-
-    if len(string1) > len(string2):
-        difference = len(string1) - len(string2)
-        string1=[:difference]
-
-    elif len(string2) > len(string1):
-        difference = len(string2) - len(string1)
-        string2[:difference]
-
-    else:
-        difference = 0
-
-    for i in range(len(string1)):
-        if string1[i] != string2[i]:
-            difference += 1
-
-    return difference
-
-"""
-for i in range(4):
-    print (k_Gram(i+1,"termDict"))
-
-KList = k_Gram(3,"termDict")
-for kGram in iter(KList):
-    print ('"' + kGram + '"')
- """
-"""
-valuegrams =[]
-for i in range(k_Gram(k=termDict)):
-    valuegrams.append([i])
-"""
