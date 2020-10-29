@@ -1,11 +1,13 @@
 movies = open('movies.txt', encoding="utf-8")
 
 termDict = {}
+kgramDict= {}
 
 with open('movies.txt', 'r') as movie:
     for line in movie:
         words = line.replace('.', '').replace('\'', '').replace(',', '').lower().split()
         for word in words:
+            g = K_Gram (3, trem)
             if word not in termDict:
                 termDict[word] = 1
             else:
@@ -37,3 +39,4 @@ def edit_distance(term, query, x, y):
                 distProb[n][m]= 1 + min(distProb[n][m-1],distProb[n-1][m],distProb[n-1][m-1])
     return distProb[x][y]
 
+def search ()
