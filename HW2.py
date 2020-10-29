@@ -31,12 +31,35 @@ for i in range(4):
 
 print(mydict)
 '''
-"""
-def jaccard(mydict, termdict):
-    intersection = len(list(set(list1).intersection(list2)))
-    union = (len(list1) + len(list2)) - intersection
+
+
+def jaccard(value, termDict):
+    intersection = len(list(set(value).intersection(termDict)))
+    union = (len(value) + len(termDict)) - intersection
     return float(intersection) / union
-"""
+
+
+
+def edit_distance(string1, string2):
+
+
+    if len(string1) > len(string2):
+        difference = len(string1) - len(string2)
+        string1=[:difference]
+
+    elif len(string2) > len(string1):
+        difference = len(string2) - len(string1)
+        string2[:difference]
+
+    else:
+        difference = 0
+
+    for i in range(len(string1)):
+        if string1[i] != string2[i]:
+            difference += 1
+
+    return difference
+
 """
 for i in range(4):
     print (k_Gram(i+1,"termDict"))
@@ -45,8 +68,8 @@ KList = k_Gram(3,"termDict")
 for kGram in iter(KList):
     print ('"' + kGram + '"')
  """
-'''
+"""
 valuegrams =[]
-for i in range klist:
+for i in range(k_Gram(k=termDict)):
     valuegrams.append([i])
-'''
+"""
