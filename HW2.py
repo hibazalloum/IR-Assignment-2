@@ -40,7 +40,7 @@ def search(q):
     for i in range(len(highjaccrd)):
         for j in highjaccrd[i]:
             high = termDict[j]
-            jaccard =jaccardCoefficient(high,sg)
+            jaccard = jaccardCoefficient(high,sg)
             if jaccard > jc:
                 if j not in wd.keys():
                     wd[j] = jaccard
